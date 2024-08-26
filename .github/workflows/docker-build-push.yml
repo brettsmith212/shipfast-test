@@ -49,5 +49,5 @@ jobs:
             docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
             docker stop shipfast-test || true
             docker rm shipfast-test || true
-            docker run -d -p 3000:3000 --name shipfast-test ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+            docker run -d -p 3000:3000 --name shipfast-test --restart always ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           '
